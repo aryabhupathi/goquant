@@ -18,7 +18,7 @@ export default function Home() {
         height: "100%",
       }}
     >
-      <Typography variant="h4" color="gold" mt={3}>
+      <Typography variant="h4" color="gold" mt={2}>
         TRACKSTOCK
       </Typography>
       <Grid size={10}>

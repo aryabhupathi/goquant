@@ -49,7 +49,7 @@ export default function OrderBookWithPairSelector({
       sx={{
         backgroundColor: "#001f3f",
         padding: 3,
-        minHeight: "100vh",
+        minHeight: "80vh",
       }}
     >
       <Grid item="true" size={12}>
@@ -64,8 +64,7 @@ export default function OrderBookWithPairSelector({
           }}
         >
           <Typography
-            variant="h4"
-            component="h2"
+            variant="h5"
             sx={{
               background: "linear-gradient(to right, #FF5722, #4CAF50)",
               WebkitBackgroundClip: "text",

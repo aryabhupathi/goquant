@@ -1,11 +1,15 @@
+
+
 "use client";
 import { Container, Typography, Box, Card, CardContent } from "@mui/material";
 import { GitHub, LinkedIn } from "@mui/icons-material";
 import Grid from "@mui/material/Grid2";
+
 const cardStyle = {
   backgroundColor: "#003366",
   color: "white",
   boxShadow: 4,
+  height:'300px',
   transition: "transform 0.3s, box-shadow 0.3s",
   "&:hover": {
     transform: "scale(1.05)",
@@ -16,11 +20,13 @@ const iconStyle = {
   color: "white",
   fontSize: 32,
 };
+
 const ContactUsPage = () => {
   return (
-    <Container sx={{py: 3 }}>
+    <Container sx={{ py: 3 }}>
+      {/* Header Section */}
       <Typography
-        variant="h3"
+        variant="h4"
         gutterBottom
         sx={{ textAlign: "center", fontWeight: "bold", color: "#FFD700" }}
       >
@@ -30,11 +36,11 @@ const ContactUsPage = () => {
         variant="body1"
         sx={{ textAlign: "center", mb: 4, color: "#e0e0e0" }}
       >
-        Get in touch with us through the details below. We're here to assist
-        you!
+        Get in touch with us through the details below. We're here to assist you!
       </Typography>
+
       <Grid container spacing={4} justifyContent="center">
-        <Grid item="true" size={{ xs: 12, sm: 4 }}>
+        <Grid item='true' size={{xs:12, sm:6, md:4}}>
           <Card sx={cardStyle}>
             <CardContent>
               <Typography
@@ -42,7 +48,7 @@ const ContactUsPage = () => {
                 gutterBottom
                 sx={{ fontWeight: "bold", color: "#FFD700" }}
               >
-                Contact Information
+                Personal Contact
               </Typography>
               <Typography variant="body1" sx={{ mb: 2 }}>
                 <strong>Email:</strong> bhupathikonduru@gmail.com
@@ -53,35 +59,58 @@ const ContactUsPage = () => {
               <Typography variant="body1" sx={{ mb: 2 }}>
                 <strong>Address:</strong> Bangalore
               </Typography>
+              <Box sx={{ display: "flex", gap: 2, mt:'5px', justifyContent: "center" }}>
+                <a
+                  href="https://github.com/aryabhupathi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GitHub sx={iconStyle} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/arya-bhupathi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LinkedIn sx={iconStyle} />
+                </a>
+              </Box>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        <Grid item='true' size={{xs:12, sm:6, md:4}}>
+          <Card sx={cardStyle}>
+            <CardContent>
               <Typography
                 variant="h5"
                 gutterBottom
                 sx={{ fontWeight: "bold", color: "#FFD700" }}
               >
-                Follow Us
+                Corporate Contact
               </Typography>
-              <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                <Box sx={{ display: "flex", gap: 2 }}>
-                  <a
-                    href="https://github.com/aryabhupathi"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <GitHub sx={iconStyle} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/arya-bhupathi/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <LinkedIn sx={iconStyle} />
-                  </a>
-                </Box>
-              </Box>
+              <Typography variant="body1" sx={{ mb: 2 }}>
+                <strong>Email:</strong> info@goquant.io
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 2 }}>
+                <strong>Phone:</strong> +1 (305) 239-4196
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 2 }}>
+                <strong>Location:</strong> 
+                <br />
+                HEADQUARTERS
+                <br />
+                150 SE 2nd Ave, Ste 401
+                <br />
+                Miami, FL 33131
+                <br />
+                United States
+              </Typography>
             </CardContent>
           </Card>
         </Grid>
       </Grid>
+
       <Box sx={{ mt: 5, textAlign: "center" }}>
         <Typography
           variant="h4"
@@ -99,4 +128,5 @@ const ContactUsPage = () => {
     </Container>
   );
 };
+
 export default ContactUsPage;
