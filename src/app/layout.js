@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { CssBaseline } from "@mui/material";
+import Header from "./components/Header";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -23,8 +24,10 @@ export default function RootLayout({ children }) {
       <head>
         <title>Crypto Orderbook</title>
       </head>
-      <body>
+      <body style={{backgroundImage:"url(../stock.jpg)",backgroundSize: "cover",
+        backgroundPosition: "center",}}>
       <CssBaseline/>
+      <Header/>
         {children}
       </body>
     </html>

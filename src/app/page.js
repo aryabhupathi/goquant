@@ -3,20 +3,18 @@ import { useState } from "react";
 import Grid from "@mui/material/Grid2";
 import OrderBookWithPairSelector from "./components/OrderBookWithPairSelector";
 import SpreadIndicator from "./components/SpreadIndicator";
-import OrderBookSide from "./components/OrderBookSide";
 import MarketDepthChart from "./components/MarketDepthChart";
 import { Typography } from "@mui/material";
+import ImbalanceIndicator from "./components/ImbalanceIndicator";
 export default function Home() {
   const [selectedPair, setSelectedPair] = useState("BTCUSDT");
   return (
+    
     <Grid
       container
       spacing={2}
       justifyContent={"center"}
       sx={{
-        backgroundImage: "url(../stock.jpg)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
         height: "100%",
       }}
     >
@@ -24,17 +22,18 @@ export default function Home() {
         TRACKSTOCK
       </Typography>
       <Grid size={10}>
-        <OrderBookWithPairSelector />
+        <OrderBookWithPairSelector selectedPair={selectedPair} setSelectedPair={setSelectedPair} />
       </Grid>
       <Grid size={10}>
         <SpreadIndicator selectedPair={selectedPair} />
       </Grid>
       <Grid size={10}>
-        <OrderBookSide selectedPair={selectedPair} />
+        <ImbalanceIndicator selectedPair={selectedPair} />
       </Grid>
       <Grid size={10}>
         <MarketDepthChart selectedPair={selectedPair} />
       </Grid>
     </Grid>
+    
   );
 }

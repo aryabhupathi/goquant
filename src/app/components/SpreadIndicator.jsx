@@ -1,5 +1,3 @@
-
-
 "use client";
 import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
@@ -26,10 +24,8 @@ ChartJS.register(
   Legend
 );
 import InfoIcon from "@mui/icons-material/Info";
-
 export default function SpreadIndicator({ selectedPair }) {
   const [spreadData, setSpreadData] = useState([]);
-  
   useEffect(() => {
     const fetchData = async () => {
       const data = await getOrderBook(selectedPair);
@@ -42,7 +38,6 @@ export default function SpreadIndicator({ selectedPair }) {
     const interval = setInterval(fetchData, 2000);
     return () => clearInterval(interval);
   }, [selectedPair]);
-
   const chartData = {
     labels: spreadData.map((_, index) => index),
     datasets: [
@@ -60,14 +55,13 @@ export default function SpreadIndicator({ selectedPair }) {
       },
     ],
   };
-
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
       legend: {
         display: true,
-        position: "top",
+        position: "bottom",
         labels: {
           color: "#37474f",
         },
@@ -84,9 +78,14 @@ export default function SpreadIndicator({ selectedPair }) {
       x: {
         title: {
           display: true,
-          text: "Time",
+          text: "Time (Sec)",
           color: "#37474f",
+          font: {
+            weight: "bold",
+            lineHeight: 1.2,
+          },
         },
+
         ticks: {
           color: "#37474f",
         },
@@ -96,6 +95,10 @@ export default function SpreadIndicator({ selectedPair }) {
           display: true,
           text: "Spread (USD)",
           color: "#37474f",
+          font: {
+            weight: "bold",
+            lineHeight: 1.2,
+          },
         },
         ticks: {
           color: "#37474f",
@@ -104,18 +107,14 @@ export default function SpreadIndicator({ selectedPair }) {
       },
     },
   };
-
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
-
   return (
     <Grid
       container
@@ -127,13 +126,11 @@ export default function SpreadIndicator({ selectedPair }) {
         padding: 3,
       }}
     >
-      <Grid item='true' size={12}>
+      <Grid item="true" size={12}>
         <Paper
           elevation={3}
           sx={{
             padding: 4,
-            
-            backgroundColor: "rgba(255, 255, 255, 0.8)",
             borderRadius: "12px",
           }}
         >
@@ -155,7 +152,6 @@ export default function SpreadIndicator({ selectedPair }) {
             >
               Spread Indicator
             </Typography>
-
             {/* Info Icon with Popover */}
             <Box
               sx={{ display: "flex", alignItems: "center" }}
@@ -166,7 +162,6 @@ export default function SpreadIndicator({ selectedPair }) {
             >
               <InfoIcon sx={{ color: "#00796b", cursor: "pointer" }} />
             </Box>
-
             <Popover
               id="mouse-over-popover"
               sx={{ pointerEvents: "none" }}
@@ -197,12 +192,12 @@ export default function SpreadIndicator({ selectedPair }) {
                   bid (the highest price buyers are willing to pay) and the best
                   ask (the lowest price sellers are willing to accept). A
                   smaller spread usually indicates higher liquidity, while a
-                  larger spread may suggest lower liquidity or higher volatility.
+                  larger spread may suggest lower liquidity or higher
+                  volatility.
                 </Typography>
               </Box>
             </Popover>
           </Grid>
-
           <Grid mt={2} sx={{ height: "300px", width: "100%" }}>
             <Line data={chartData} options={chartOptions} />
           </Grid>

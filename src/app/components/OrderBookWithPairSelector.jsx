@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useEffect, useState } from "react";
 import { getOrderBook } from "../api/stockapi";
 import {
@@ -14,8 +14,10 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import PairSelector from "./PairSelector";
-export default function OrderBookWithPairSelector() {
-  const [selectedPair, setSelectedPair] = useState("BTCUSDT");
+export default function OrderBookWithPairSelector({
+  selectedPair,
+  setSelectedPair,
+}) {
   const [orderBook, setOrderBook] = useState({ bids: [], asks: [] });
   const isMobile = useMediaQuery("(min-width:600px)");
   const fetchOrderBook = async (pair) => {
@@ -50,12 +52,11 @@ export default function OrderBookWithPairSelector() {
         minHeight: "100vh",
       }}
     >
-      <Grid item='true' xs={12}>
+      <Grid item="true" size={12}>
         <Paper
           elevation={3}
           sx={{
-            padding: 4,
-            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            padding: 2,
             borderRadius: "12px",
             width: "100%",
             maxWidth: "1200px",
@@ -66,7 +67,7 @@ export default function OrderBookWithPairSelector() {
             variant="h4"
             component="h2"
             sx={{
-              background: "linear-gradient(to right, #ff4500, #32cd32)",
+              background: "linear-gradient(to right, #FF5722, #4CAF50)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               textAlign: "center",
@@ -78,30 +79,29 @@ export default function OrderBookWithPairSelector() {
           </Typography>
           <PairSelector onPairChange={setSelectedPair} />
           <Grid container spacing={2}>
-            {/* Asks Table */}
-            <Grid item='true' size={12} >
+            <Grid item="true" size={12}>
               <Paper
                 elevation={2}
                 sx={{
                   padding: 2,
-                  backgroundColor: "rgba(255, 69, 0, 0.15)",
+                  backgroundColor: "rgba(255, 87, 34, 0.15)",
                   borderRadius: "8px",
                 }}
               >
                 <Typography
                   variant="h5"
                   sx={{
-                    color: "#ff4500",
+                    color: "#FF5722",
                     textAlign: "center",
                     fontWeight: "bold",
-                    borderBottom: "3px solid #ff6347",
+                    borderBottom: "3px solid #FF7043",
                   }}
                 >
                   Asks
                 </Typography>
                 {isMobile ? (
                   <TableContainer
-                    sx={{ backgroundColor: "rgba(255, 69, 0, 0.05)" }}
+                    sx={{ backgroundColor: "rgba(255, 87, 34, 0.1)" }}
                   >
                     <Table>
                       <TableHead>
@@ -110,7 +110,7 @@ export default function OrderBookWithPairSelector() {
                             sx={{
                               fontWeight: "bold",
                               textAlign: "center",
-                              color: "#ff6347",
+                              color: "#FF7043",
                             }}
                           >
                             Price
@@ -121,7 +121,7 @@ export default function OrderBookWithPairSelector() {
                               sx={{
                                 fontWeight: "bold",
                                 textAlign: "center",
-                                color: "#ff6347",
+                                color: "#FF7043",
                               }}
                             >
                               {price}
@@ -134,7 +134,7 @@ export default function OrderBookWithPairSelector() {
                           <TableCell
                             sx={{
                               textAlign: "center",
-                              color: "#ff4500",
+                              color: "#FF5722",
                             }}
                           >
                             Value
@@ -144,7 +144,7 @@ export default function OrderBookWithPairSelector() {
                               key={index}
                               sx={{
                                 textAlign: "center",
-                                color: "#ff4500",
+                                color: "#FF5722",
                               }}
                             >
                               {value}
@@ -156,7 +156,7 @@ export default function OrderBookWithPairSelector() {
                   </TableContainer>
                 ) : (
                   <TableContainer
-                    sx={{ backgroundColor: "rgba(255, 69, 0, 0.05)" }}
+                    sx={{ backgroundColor: "rgba(255, 87, 34, 0.1)" }}
                   >
                     <Table>
                       <TableHead>
@@ -165,13 +165,13 @@ export default function OrderBookWithPairSelector() {
                             sx={{
                               fontWeight: "bold",
                               textAlign: "center",
-                              color: "#d32f2f",
+                              color: "#E64A19",
                             }}
                           >
                             Price
                           </TableCell>
                           <TableCell
-                            sx={{ textAlign: "center", color: "#c62828" }}
+                            sx={{ textAlign: "center", color: "#D84315" }}
                           >
                             Value
                           </TableCell>
@@ -184,7 +184,7 @@ export default function OrderBookWithPairSelector() {
                               sx={{
                                 fontWeight: "bold",
                                 textAlign: "center",
-                                color: "#d32f2f",
+                                color: "#E64A19",
                               }}
                             >
                               {price}
@@ -192,7 +192,7 @@ export default function OrderBookWithPairSelector() {
                             <TableCell
                               sx={{
                                 textAlign: "center",
-                                color: "#c62828",
+                                color: "#D84315",
                               }}
                             >
                               {askValues[index]}
@@ -205,29 +205,29 @@ export default function OrderBookWithPairSelector() {
                 )}
               </Paper>
             </Grid>
-            <Grid item='true' size={12}>
+            <Grid item="true" size={12}>
               <Paper
                 elevation={2}
                 sx={{
                   padding: 2,
-                  backgroundColor: "rgba(50, 205, 50, 0.15)",
+                  backgroundColor: "rgba(76, 175, 80, 0.15)",
                   borderRadius: "8px",
                 }}
               >
                 <Typography
                   variant="h5"
                   sx={{
-                    color: "#32cd32",
+                    color: "#4CAF50",
                     textAlign: "center",
                     fontWeight: "bold",
-                    borderBottom: "3px solid #228b22",
+                    borderBottom: "3px solid #388E3C",
                   }}
                 >
                   Bids
                 </Typography>
                 {isMobile ? (
                   <TableContainer
-                    sx={{ backgroundColor: "rgba(50, 205, 50,, 0.05)" }}
+                    sx={{ backgroundColor: "rgba(76, 175, 80, 0.1)" }}
                   >
                     <Table>
                       <TableHead>
@@ -236,7 +236,7 @@ export default function OrderBookWithPairSelector() {
                             sx={{
                               fontWeight: "bold",
                               textAlign: "center",
-                              color: "#32cd32",
+                              color: "#4CAF50",
                             }}
                           >
                             Price
@@ -247,7 +247,7 @@ export default function OrderBookWithPairSelector() {
                               sx={{
                                 fontWeight: "bold",
                                 textAlign: "center",
-                                color: "#32cd32",
+                                color: "#4CAF50",
                               }}
                             >
                               {price}
@@ -258,14 +258,14 @@ export default function OrderBookWithPairSelector() {
                       <TableBody>
                         <TableRow>
                           <TableCell
-                            sx={{ textAlign: "center", color: "#228b22" }}
+                            sx={{ textAlign: "center", color: "#388E3C" }}
                           >
                             Value
                           </TableCell>
                           {bidValues.map((value, index) => (
                             <TableCell
                               key={index}
-                              sx={{ textAlign: "center", color: "#228b22" }}
+                              sx={{ textAlign: "center", color: "#388E3C" }}
                             >
                               {value}
                             </TableCell>
@@ -276,19 +276,46 @@ export default function OrderBookWithPairSelector() {
                   </TableContainer>
                 ) : (
                   <TableContainer
-                    sx={{ backgroundColor: "rgba(50, 205, 50,, 0.05)" }}
+                    sx={{ backgroundColor: "rgba(76, 175, 80, 0.1)" }}
                   >
                     <Table>
+                      <TableHead>
+                        <TableRow>
+                          <TableCell
+                            sx={{
+                              fontWeight: "bold",
+                              textAlign: "center",
+                              color: "#388E3C",
+                            }}
+                          >
+                            Price
+                          </TableCell>
+                          <TableCell
+                            sx={{ textAlign: "center", color: "#4CAF50" }}
+                          >
+                            Value
+                          </TableCell>
+                        </TableRow>
+                      </TableHead>
                       <TableBody>
                         {bidPrices.map((price, index) => (
                           <TableRow key={index}>
                             <TableCell
-                              sx={{ fontWeight: "bold", color: "#32cd32" }}
+                              sx={{
+                                fontWeight: "bold",
+                                textAlign: "center",
+                                color: "#388E3C",
+                              }}
                             >
-                              Price: {price}
+                              {price}
                             </TableCell>
-                            <TableCell sx={{ color: "#228b22" }}>
-                              Value: {bidValues[index]}
+                            <TableCell
+                              sx={{
+                                textAlign: "center",
+                                color: "#4CAF50",
+                              }}
+                            >
+                              {bidValues[index]}
                             </TableCell>
                           </TableRow>
                         ))}
@@ -304,3 +331,4 @@ export default function OrderBookWithPairSelector() {
     </Grid>
   );
 }
+
