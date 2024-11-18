@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Grid from "@mui/material/Grid2";
-import OrderBookWithPairSelector from "./components/OrderBookWithPairSelector";
+import OrderBook from "./components/OrderBook";
 import SpreadIndicator from "./components/SpreadIndicator";
 import MarketDepthChart from "./components/MarketDepthChart";
 import { Typography } from "@mui/material";
@@ -22,7 +22,7 @@ export default function Home() {
         TRACKSTOCK
       </Typography>
       <Grid size={10}>
-        <OrderBookWithPairSelector selectedPair={selectedPair} setSelectedPair={setSelectedPair} />
+        <OrderBook selectedPair={selectedPair} setSelectedPair={setSelectedPair} />
       </Grid>
       <Grid size={10}>
         <SpreadIndicator selectedPair={selectedPair} />

@@ -14,10 +14,10 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import PairSelector from "./PairSelector";
-export default function OrderBookWithPairSelector({
+const OrderBook = ({
   selectedPair,
   setSelectedPair,
-}) {
+}) => {
   const [orderBook, setOrderBook] = useState({ bids: [], asks: [] });
   const isMobile = useMediaQuery("(min-width:600px)");
   const fetchOrderBook = async (pair) => {
@@ -330,4 +330,5 @@ export default function OrderBookWithPairSelector({
     </Grid>
   );
 }
+export default OrderBook
 

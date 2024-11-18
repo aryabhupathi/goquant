@@ -45,7 +45,7 @@ const popoverBoxStyle = {
   color: "#37474f",
   borderRadius: "8px",
 };
-export default function MarketDepthChart({ selectedPair }) {
+const MarketDepthChart = ({ selectedPair }) => {
   const [depthData, setDepthData] = useState({ bids: [], asks: [] });
   const [loading, setLoading] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -245,3 +245,5 @@ export default function MarketDepthChart({ selectedPair }) {
     </Grid>
   );
 }
+
+export default MarketDepthChart

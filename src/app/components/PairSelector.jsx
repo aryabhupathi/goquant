@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Grid from '@mui/material/Grid2';
 import {FormControl, MenuItem, Select} from '@mui/material';
-export default function PairSelector({ onPairChange }) {
+const PairSelector = ({ onPairChange }) => {
   const [selectedPair, setSelectedPair] = useState('BTCUSDT');
   const handlePairChange = (event) => {
     const pair = event.target.value;
@@ -44,3 +44,5 @@ export default function PairSelector({ onPairChange }) {
     </Grid>
   );
 }
+
+export default PairSelector;

@@ -24,7 +24,7 @@ ChartJS.register(
   Legend
 );
 import InfoIcon from "@mui/icons-material/Info";
-export default function SpreadIndicator({ selectedPair }) {
+const SpreadIndicator = ({ selectedPair }) => {
   const [spreadData, setSpreadData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -206,3 +206,5 @@ export default function SpreadIndicator({ selectedPair }) {
     </Grid>
   );
 }
+
+export default SpreadIndicator
