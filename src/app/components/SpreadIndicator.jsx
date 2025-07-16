@@ -44,14 +44,14 @@ const SpreadIndicator = ({ selectedPair }) => {
       {
         label: "Spread (USD)",
         data: spreadData,
-        fill: false,
-        borderColor: "rgb(0, 150, 136)",
-        backgroundColor: "rgba(0, 150, 136, 0.2)",
+        fill: true,
+        borderColor: "#8B5CF6",
+        backgroundColor: "rgba(139, 92, 245, 0.2)",
         tension: 0.1,
-        pointBackgroundColor: "rgba(255, 99, 132, 0.8)",
-        pointBorderColor: "rgba(255, 99, 132, 0.8)",
-        pointHoverBackgroundColor: "rgba(255, 159, 64, 0.8)",
-        pointHoverBorderColor: "rgba(255, 159, 64, 0.8)",
+        pointBackgroundColor: "#10B981",
+        pointBorderColor: "#10B981",
+        pointHoverBackgroundColor: "#34D399",
+        pointHoverBorderColor: "#34D399",
       },
     ],
   };
@@ -63,14 +63,14 @@ const SpreadIndicator = ({ selectedPair }) => {
         display: true,
         position: "bottom",
         labels: {
-          color: "#37474f",
+          color: "#F9FAFB",
         },
       },
       tooltip: {
-        backgroundColor: "#fff",
-        titleColor: "#000",
-        bodyColor: "#000",
-        borderColor: "rgba(0, 150, 136, 1)",
+        backgroundColor: "#1F2937",
+        titleColor: "#F9FAFB",
+        bodyColor: "#F9FAFB",
+        borderColor: "#8B5CF6",
         borderWidth: 1,
       },
     },
@@ -79,29 +79,28 @@ const SpreadIndicator = ({ selectedPair }) => {
         title: {
           display: true,
           text: "Time (Sec)",
-          color: "#37474f",
+          color: "#F9FAFB",
           font: {
             weight: "bold",
             lineHeight: 1.2,
           },
         },
-
         ticks: {
-          color: "#37474f",
+          color: "#F9FAFB",
         },
       },
       y: {
         title: {
           display: true,
           text: "Spread (USD)",
-          color: "#37474f",
+          color: "#F9FAFB",
           font: {
             weight: "bold",
             lineHeight: 1.2,
           },
         },
         ticks: {
-          color: "#37474f",
+          color: "#F9FAFB",
         },
         beginAtZero: true,
       },
@@ -122,7 +121,7 @@ const SpreadIndicator = ({ selectedPair }) => {
       justifyContent="center"
       alignItems="center"
       sx={{
-        backgroundColor: "#001f3f",
+        backgroundColor: "#111827",
         padding: 3,
       }}
     >
@@ -132,6 +131,7 @@ const SpreadIndicator = ({ selectedPair }) => {
           sx={{
             padding: 4,
             borderRadius: "12px",
+            backgroundColor: "#1F2937",
           }}
         >
           <Grid
@@ -139,20 +139,19 @@ const SpreadIndicator = ({ selectedPair }) => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              borderBottom: "2px solid #00796b",
+              borderBottom: "2px solid #8B5CF6",
               paddingBottom: 2,
             }}
           >
             <Typography
               variant="h5"
               sx={{
-                color: "#00796b",
+                color: "#8B5CF6",
                 fontWeight: "bold",
               }}
             >
               Spread Indicator
             </Typography>
-            {/* Info Icon with Popover */}
             <Box
               sx={{ display: "flex", alignItems: "center" }}
               onMouseEnter={handlePopoverOpen}
@@ -160,7 +159,7 @@ const SpreadIndicator = ({ selectedPair }) => {
               aria-owns={open ? "mouse-over-popover" : undefined}
               aria-haspopup="true"
             >
-              <InfoIcon sx={{ color: "#00796b", cursor: "pointer" }} />
+              <InfoIcon sx={{ color: "#8B5CF6", cursor: "pointer" }} />
             </Box>
             <Popover
               id="mouse-over-popover"
@@ -180,11 +179,11 @@ const SpreadIndicator = ({ selectedPair }) => {
             >
               <Box
                 sx={{
-                  border: "2px solid #00796b",
-                  backgroundColor: "#fafafa",
+                  border: "2px solid #8B5CF6",
+                  backgroundColor: "#1F2937",
                   padding: 2,
                   maxWidth: "400px",
-                  color: "#37474f",
+                  color: "#F9FAFB",
                 }}
               >
                 <Typography>
@@ -205,6 +204,5 @@ const SpreadIndicator = ({ selectedPair }) => {
       </Grid>
     </Grid>
   );
-}
-
-export default SpreadIndicator
+};
+export default SpreadIndicator;

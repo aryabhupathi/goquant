@@ -4,22 +4,23 @@ import { getOrderBook } from "../api/stockapi";
 import { Typography, Paper } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 const gridStyle = {
-  backgroundColor: "#001f3f",
+  backgroundColor: "#111827",
   padding: 3,
 };
 const paperStyle = {
   padding: 4,
   textAlign: "center",
   borderRadius: "12px",
-  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+  backgroundColor: "#1F2937",
 };
 const titleStyle = {
-  color: "#1565c0",
+  color: "#8B5CF6",
   marginBottom: 2,
   fontWeight: "bold",
 };
 const imbalanceTextStyle = (isPositive) => ({
-  color: isPositive ? "#43a047" : "#e53935",
+  color: isPositive ? "#10B981" : "#EF4444",
   fontWeight: "bold",
   fontSize: "1.5rem",
 });
@@ -58,7 +59,7 @@ const ImbalanceIndicator = ({ selectedPair }) => {
       alignItems="center"
       sx={gridStyle}
     >
-      <Grid item='true' size={12}>
+      <Grid item="true" size={12}>
         <Paper elevation={3} sx={paperStyle}>
           <Typography variant="h5" gutterBottom sx={titleStyle}>
             Orderbook Imbalance

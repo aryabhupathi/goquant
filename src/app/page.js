@@ -9,7 +9,6 @@ import ImbalanceIndicator from "./components/ImbalanceIndicator";
 export default function Home() {
   const [selectedPair, setSelectedPair] = useState("BTCUSDT");
   return (
-    
     <Grid
       container
       spacing={2}
@@ -22,7 +21,10 @@ export default function Home() {
         TRACKSTOCK
       </Typography>
       <Grid size={10}>
-        <OrderBook selectedPair={selectedPair} setSelectedPair={setSelectedPair} />
+        <OrderBook
+          selectedPair={selectedPair}
+          setSelectedPair={setSelectedPair}
+        />
       </Grid>
       <Grid size={10}>
         <SpreadIndicator selectedPair={selectedPair} />
@@ -34,6 +36,5 @@ export default function Home() {
         <MarketDepthChart selectedPair={selectedPair} />
       </Grid>
     </Grid>
-    
   );
 }

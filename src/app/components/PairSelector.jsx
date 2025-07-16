@@ -1,9 +1,9 @@
-'use client';
-import { useState } from 'react';
-import Grid from '@mui/material/Grid2';
-import {FormControl, MenuItem, Select} from '@mui/material';
+"use client";
+import { useState } from "react";
+import Grid from "@mui/material/Grid2";
+import { FormControl, MenuItem, Select } from "@mui/material";
 const PairSelector = ({ onPairChange }) => {
-  const [selectedPair, setSelectedPair] = useState('BTCUSDT');
+  const [selectedPair, setSelectedPair] = useState("BTCUSDT");
   const handlePairChange = (event) => {
     const pair = event.target.value;
     setSelectedPair(pair);
@@ -16,14 +16,14 @@ const PairSelector = ({ onPairChange }) => {
       alignItems="center"
       sx={{ marginBottom: 2 }}
     >
-      <Grid item='true' size={{xs:12, sm:6, md:4}}>
+      <Grid item="true" size={{ xs: 12, sm: 6, md: 4 }}>
         <FormControl
           fullWidth
           sx={{
-            backgroundColor: 'rgba(255, 255, 255, 0.8)',
-            borderRadius: '8px',
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            borderRadius: "8px",
             padding: 1,
-            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
           }}
         >
           <Select
@@ -31,8 +31,8 @@ const PairSelector = ({ onPairChange }) => {
             value={selectedPair}
             onChange={handlePairChange}
             sx={{
-              color: '#1976d2',
-              backgroundColor: 'rgba(255, 255, 255, 0.8)',
+              color: "#1976d2",
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
             }}
           >
             <MenuItem value="BTCUSDT">BTC-USD</MenuItem>
@@ -43,6 +43,6 @@ const PairSelector = ({ onPairChange }) => {
       </Grid>
     </Grid>
   );
-}
+};
 
 export default PairSelector;

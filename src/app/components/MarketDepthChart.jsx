@@ -13,24 +13,25 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 const gridStyle = {
-  backgroundColor: "#0a1929",
+  backgroundColor: "#111827",
   padding: 3,
 };
 const paperStyle = {
   padding: 4,
   borderRadius: "15px",
   width: "100%",
-  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.5)",
+  backgroundColor: "#1F2937",
 };
 const headerStyle = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  borderBottom: "2px solid #00796b",
+  borderBottom: "2px solid #8B5CF6",
   paddingBottom: 2,
 };
 const titleStyle = {
-  color: "#00796b",
+  color: "#8B5CF6",
   fontWeight: "bold",
 };
 const chartContainerStyle = {
@@ -38,11 +39,11 @@ const chartContainerStyle = {
   width: "100%",
 };
 const popoverBoxStyle = {
-  border: "2px solid #00796b",
-  backgroundColor: "#fafafa",
+  border: "2px solid #8B5CF6",
+  backgroundColor: "#1F2937",
   padding: 2,
   maxWidth: "400px",
-  color: "#37474f",
+  color: "#F9FAFB",
   borderRadius: "8px",
 };
 const MarketDepthChart = ({ selectedPair }) => {
@@ -86,55 +87,56 @@ const MarketDepthChart = ({ selectedPair }) => {
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
-    scales: {
-      y: {
-        title: {
-          display: true,
-          text: "Cumulative Quantity",
-          color: "#333",
-          font: {
-            weight: "bold",
-            lineHeight: 1.2,
-          },
-        },
-        grid: {
-          color: "#ddd",
-        },
-        ticks: {
-          color: "#333",
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom",
+        labels: {
+          color: "#F9FAFB",
         },
       },
+      tooltip: {
+        backgroundColor: "#1F2937",
+        titleColor: "#F9FAFB",
+        bodyColor: "#F9FAFB",
+        borderColor: "#8B5CF6",
+        borderWidth: 1,
+      },
+    },
+    scales: {
       x: {
         title: {
           display: true,
           text: "Price (USD)",
-          color: "#333",
+          color: "#F9FAFB",
           font: {
             weight: "bold",
             lineHeight: 1.2,
           },
         },
+        ticks: {
+          color: "#F9FAFB",
+        },
         grid: {
-          color: "#ddd",
+          color: "rgba(255, 255, 255, 0.1)",
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: "Cumulative Quantity",
+          color: "#F9FAFB",
+          font: {
+            weight: "bold",
+            lineHeight: 1.2,
+          },
         },
         ticks: {
-          color: "#333",
+          color: "#F9FAFB",
         },
-      },
-    },
-    plugins: {
-      legend: {
-        position: "bottom",
-        labels: {
-          color: "#333",
+        grid: {
+          color: "rgba(255, 255, 255, 0.1)",
         },
-      },
-      tooltip: {
-        backgroundColor: "rgba(0, 0, 0, 0.8)",
-        titleColor: "#fff",
-        bodyColor: "#fff",
-        borderColor: "rgba(0, 0, 0, 0.5)",
-        borderWidth: 1,
       },
     },
   };
@@ -147,17 +149,17 @@ const MarketDepthChart = ({ selectedPair }) => {
       {
         label: "Bids",
         data: depthData.bids.map((bid) => bid.qty),
-        borderColor: "rgb(75, 192, 192)",
+        borderColor: "#10B981",
+        backgroundColor: "rgba(16, 185, 129, 0.2)",
         fill: true,
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
         tension: 0.3,
       },
       {
         label: "Asks",
         data: depthData.asks.map((ask) => ask.qty),
-        borderColor: "rgb(255, 99, 132)",
+        borderColor: "#EF4444",
+        backgroundColor: "rgba(239, 68, 68, 0.2)",
         fill: true,
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
         tension: 0.3,
       },
     ],
@@ -170,7 +172,7 @@ const MarketDepthChart = ({ selectedPair }) => {
       alignItems="center"
       sx={gridStyle}
     >
-      <Grid item ='true' size={12}>
+      <Grid item="true" size={12}>
         <Paper elevation={10} sx={paperStyle}>
           <Grid sx={headerStyle}>
             <Typography variant="h5" sx={titleStyle}>
@@ -183,7 +185,7 @@ const MarketDepthChart = ({ selectedPair }) => {
               aria-owns={open ? "mouse-over-popover" : undefined}
               aria-haspopup="true"
             >
-              <IconButton sx={{ color: "#00796b" }}>
+              <IconButton sx={{ color: "#8B5CF6" }}>
                 <InfoIcon />
               </IconButton>
             </Box>
@@ -233,7 +235,7 @@ const MarketDepthChart = ({ selectedPair }) => {
               alignItems="center"
               sx={{ height: "300px" }}
             >
-              <CircularProgress size={50} sx={{ color: "#00796b" }} />
+              <CircularProgress size={50} sx={{ color: "#8B5CF6" }} />
             </Box>
           ) : (
             <Grid mt={2} sx={chartContainerStyle}>
@@ -244,6 +246,5 @@ const MarketDepthChart = ({ selectedPair }) => {
       </Grid>
     </Grid>
   );
-}
-
-export default MarketDepthChart
+};
+export default MarketDepthChart;

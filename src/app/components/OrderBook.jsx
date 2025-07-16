@@ -14,10 +14,7 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import PairSelector from "./PairSelector";
-const OrderBook = ({
-  selectedPair,
-  setSelectedPair,
-}) => {
+const OrderBook = ({ selectedPair, setSelectedPair }) => {
   const [orderBook, setOrderBook] = useState({ bids: [], asks: [] });
   const isMobile = useMediaQuery("(min-width:600px)");
   const fetchOrderBook = async (pair) => {
@@ -47,7 +44,7 @@ const OrderBook = ({
       justifyContent="center"
       alignItems="center"
       sx={{
-        backgroundColor: "#001f3f",
+        backgroundColor: "#111827",
         padding: 3,
         minHeight: "80vh",
       }}
@@ -60,13 +57,14 @@ const OrderBook = ({
             borderRadius: "12px",
             width: "100%",
             maxWidth: "1200px",
-            boxShadow: "0 10px 20px rgba(0,0,0,0.15)",
+            boxShadow: "0 10px 20px rgba(0,0,0,0.3)",
+            backgroundColor: "#1F2937",
           }}
         >
           <Typography
             variant="h5"
             sx={{
-              background: "linear-gradient(to right, #FF5722, #4CAF50)",
+              background: "linear-gradient(to right, #8B5CF6, #10B981)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               textAlign: "center",
@@ -83,24 +81,26 @@ const OrderBook = ({
                 elevation={2}
                 sx={{
                   padding: 2,
-                  backgroundColor: "rgba(255, 87, 34, 0.15)",
+                  backgroundColor: "rgba(139, 92, 245, 0.1)",
                   borderRadius: "8px",
                 }}
               >
                 <Typography
                   variant="h5"
                   sx={{
-                    color: "#FF5722",
+                    color: "#8B5CF6",
                     textAlign: "center",
                     fontWeight: "bold",
-                    borderBottom: "3px solid #FF7043",
+                    borderBottom: "3px solid #A78BFA",
                   }}
                 >
                   Asks
                 </Typography>
                 {isMobile ? (
                   <TableContainer
-                    sx={{ backgroundColor: "rgba(255, 87, 34, 0.1)" }}
+                    sx={{
+                      backgroundColor: "rgba(139, 92, 245, 0.05)",
+                    }}
                   >
                     <Table>
                       <TableHead>
@@ -109,7 +109,7 @@ const OrderBook = ({
                             sx={{
                               fontWeight: "bold",
                               textAlign: "center",
-                              color: "#FF7043",
+                              color: "#A78BFA",
                             }}
                           >
                             Price
@@ -120,7 +120,7 @@ const OrderBook = ({
                               sx={{
                                 fontWeight: "bold",
                                 textAlign: "center",
-                                color: "#FF7043",
+                                color: "#A78BFA",
                               }}
                             >
                               {price}
@@ -133,7 +133,7 @@ const OrderBook = ({
                           <TableCell
                             sx={{
                               textAlign: "center",
-                              color: "#FF5722",
+                              color: "#8B5CF6",
                             }}
                           >
                             Value
@@ -143,7 +143,7 @@ const OrderBook = ({
                               key={index}
                               sx={{
                                 textAlign: "center",
-                                color: "#FF5722",
+                                color: "#8B5CF6",
                               }}
                             >
                               {value}
@@ -155,7 +155,9 @@ const OrderBook = ({
                   </TableContainer>
                 ) : (
                   <TableContainer
-                    sx={{ backgroundColor: "rgba(255, 87, 34, 0.1)" }}
+                    sx={{
+                      backgroundColor: "rgba(139, 92, 245, 0.05)",
+                    }}
                   >
                     <Table>
                       <TableHead>
@@ -164,13 +166,16 @@ const OrderBook = ({
                             sx={{
                               fontWeight: "bold",
                               textAlign: "center",
-                              color: "#E64A19",
+                              color: "#A78BFA",
                             }}
                           >
                             Price
                           </TableCell>
                           <TableCell
-                            sx={{ textAlign: "center", color: "#D84315" }}
+                            sx={{
+                              textAlign: "center",
+                              color: "#A78BFA",
+                            }}
                           >
                             Value
                           </TableCell>
@@ -183,7 +188,7 @@ const OrderBook = ({
                               sx={{
                                 fontWeight: "bold",
                                 textAlign: "center",
-                                color: "#E64A19",
+                                color: "#A78BFA",
                               }}
                             >
                               {price}
@@ -191,7 +196,7 @@ const OrderBook = ({
                             <TableCell
                               sx={{
                                 textAlign: "center",
-                                color: "#D84315",
+                                color: "#8B5CF6",
                               }}
                             >
                               {askValues[index]}
@@ -209,24 +214,26 @@ const OrderBook = ({
                 elevation={2}
                 sx={{
                   padding: 2,
-                  backgroundColor: "rgba(76, 175, 80, 0.15)",
+                  backgroundColor: "rgba(16, 185, 129, 0.1)",
                   borderRadius: "8px",
                 }}
               >
                 <Typography
                   variant="h5"
                   sx={{
-                    color: "#4CAF50",
+                    color: "#10B981",
                     textAlign: "center",
                     fontWeight: "bold",
-                    borderBottom: "3px solid #388E3C",
+                    borderBottom: "3px solid #34D399",
                   }}
                 >
                   Bids
                 </Typography>
                 {isMobile ? (
                   <TableContainer
-                    sx={{ backgroundColor: "rgba(76, 175, 80, 0.1)" }}
+                    sx={{
+                      backgroundColor: "rgba(16, 185, 129, 0.05)",
+                    }}
                   >
                     <Table>
                       <TableHead>
@@ -235,7 +242,7 @@ const OrderBook = ({
                             sx={{
                               fontWeight: "bold",
                               textAlign: "center",
-                              color: "#4CAF50",
+                              color: "#34D399",
                             }}
                           >
                             Price
@@ -246,7 +253,7 @@ const OrderBook = ({
                               sx={{
                                 fontWeight: "bold",
                                 textAlign: "center",
-                                color: "#4CAF50",
+                                color: "#34D399",
                               }}
                             >
                               {price}
@@ -257,14 +264,20 @@ const OrderBook = ({
                       <TableBody>
                         <TableRow>
                           <TableCell
-                            sx={{ textAlign: "center", color: "#388E3C" }}
+                            sx={{
+                              textAlign: "center",
+                              color: "#10B981",
+                            }}
                           >
                             Value
                           </TableCell>
                           {bidValues.map((value, index) => (
                             <TableCell
                               key={index}
-                              sx={{ textAlign: "center", color: "#388E3C" }}
+                              sx={{
+                                textAlign: "center",
+                                color: "#10B981",
+                              }}
                             >
                               {value}
                             </TableCell>
@@ -275,7 +288,9 @@ const OrderBook = ({
                   </TableContainer>
                 ) : (
                   <TableContainer
-                    sx={{ backgroundColor: "rgba(76, 175, 80, 0.1)" }}
+                    sx={{
+                      backgroundColor: "rgba(16, 185, 129, 0.05)",
+                    }}
                   >
                     <Table>
                       <TableHead>
@@ -284,13 +299,16 @@ const OrderBook = ({
                             sx={{
                               fontWeight: "bold",
                               textAlign: "center",
-                              color: "#388E3C",
+                              color: "#34D399",
                             }}
                           >
                             Price
                           </TableCell>
                           <TableCell
-                            sx={{ textAlign: "center", color: "#4CAF50" }}
+                            sx={{
+                              textAlign: "center",
+                              color: "#34D399",
+                            }}
                           >
                             Value
                           </TableCell>
@@ -303,7 +321,7 @@ const OrderBook = ({
                               sx={{
                                 fontWeight: "bold",
                                 textAlign: "center",
-                                color: "#388E3C",
+                                color: "#34D399",
                               }}
                             >
                               {price}
@@ -311,7 +329,7 @@ const OrderBook = ({
                             <TableCell
                               sx={{
                                 textAlign: "center",
-                                color: "#4CAF50",
+                                color: "#10B981",
                               }}
                             >
                               {bidValues[index]}
@@ -329,6 +347,5 @@ const OrderBook = ({
       </Grid>
     </Grid>
   );
-}
-export default OrderBook
-
+};
+export default OrderBook;
